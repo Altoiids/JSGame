@@ -13,7 +13,7 @@
     <div class="gamecontainer">
     
         <div class="santa">
-            <img class="santaimage santaani" src="public/assets/santaa.png">
+            <img class="santaimg santaani" src="public/assets/santaa.png">
         </div>
         <div class="gameover"></div>
         <div class="score"></div>
@@ -39,9 +39,10 @@ gift.classList.remove('animategift')
        }); 
 
    setInterval(() => {
-    gift=document.querySelector('.gift');
+    santa=document.querySelector('.santaimg');
+    gift=document.querySelector('.giftimg');
     gameover = document.querySelector(".gameover");
-    lighthouse = document.querySelector("lighthouse");
+    lighthouse = document.querySelector(".lighthouseimg");
     gx= parseInt(window.getComputedStyle(gift,null).getPropertyValue('left'));
     gy= parseInt(window.getComputedStyle(gift,null).getPropertyValue('top'));
     ox= parseInt(window.getComputedStyle(lighthouse,null).getPropertyValue('left'));
@@ -51,11 +52,11 @@ offsetY= Math.abs(dy-oy);
 console.log(offsetX,offsetY);
 if(offsetX<93 && offsetY<52){
     gameover.style.visibility = 'visible';
-    obstacle.classList.remove('santaani');
-    obstacle.classList.remove('gift');
-    obstacle.classList.remove('lighthouseani')
+    santa.classList.remove('santaani');
+    gift.classList.remove('gift');
+    lighthouse.classList.remove('lighthouseani')
 }  
-});      
+},10);      
   
 </script>
 </body>
