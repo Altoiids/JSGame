@@ -47,13 +47,13 @@ gift.classList.remove('animategift')
     gy= parseInt(window.getComputedStyle(gift,null).getPropertyValue('top'));
     ox= parseInt(window.getComputedStyle(lighthouse,null).getPropertyValue('left'));
     oy= parseInt(window.getComputedStyle(lighthouse,null).getPropertyValue('top'));
-offsetX = Math.abs(dx-ox);
-offsetY= Math.abs(dy-oy);
+offsetX = Math.abs(gx-ox);
+offsetY= Math.abs(gy-oy);
 console.log(offsetX,offsetY);
-if(offsetX<93 && offsetY<52){
+if(offsetX<1050 && offsetY<200){
     gameover.style.visibility = 'visible';
     santa.classList.remove('santaani');
-    gift.classList.remove('gift');
+    gift.classList.remove('animategift');
     lighthouse.classList.remove('lighthouseani')
 }  
 },10);      
