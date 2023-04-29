@@ -1,0 +1,21 @@
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .bg{
+        
+        background-image: url(../assets/homebg2.jpg);
+        width: 100vw;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: none;
+        
+    }
+    .startbtn{
+        display: flex;
+        margin-top: 40vh;
+        width: 10vw;
+        height: 10vh;
+        background-color: #ddbc56;
+    }

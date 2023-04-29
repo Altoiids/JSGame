@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+body{
+    background-image:url(../assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    overflow: hidden;
+}
+.santaimage{
+    position: relative;
+    height: 22vh;
+    width:30vw;
+    margin-top:7vh;
+    
+}
+.giftimg{
+   position: relative;
+   width:6vh;
+    height: 6vh;
+}
+
+
+.animategift{
+    animation: gift 2s ease-in-out;
+}
+@keyframes gift{
+    0%{
+        margin-top: 7.5vh;
+    }
+    50%{
+        margin-top: 30vh;
+    }
+    100%{
+        margin-top: 60vh;
+    }
+}
+@keyframes santaani{
+    0%{
+        left: -10vw;
+
+    }
+    100%{
+        left: 100vw;
+    }
+}
+
+.santaani{
+    animation: santaani 5s linear infinite;
+}
+
+@keyframes lighthouseani{
+    0%{
+        left: -10vw;
+
+    }
+    100%{
+        left: 100vw;
+    }
+}
+
+.lighthouseani{
+    animation: lighthouseani 8s linear infinite;
+}
+
+.lighthouseimg{
+    position: relative;
+    
+}
+
+
+

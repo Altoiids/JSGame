@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="public/styles/style.css">
+    
+</head>
+<body>
+    <div class="gamecontainer">
+    
+        <div class="santa">
+            <img class="santaimage santaani" src="public/assets/santaa.png">
+        </div>
+        <div class="gameover"></div>
+        <div class="score"></div>
+        <div class="gift">
+            <img src="public/assets/gift.png" class="giftimg">
+        </div>
+        <div class="lighthouse ">
+            <img src="public/assets/house1.png" class="lighthouseimg lighthouseani">
+        </div>
+        <div class="darkhouse"></div>
+
+</div>
+<script>
+    document.addEventListener("keydown", (event) => {
+        console.log(event.keyCode);
+        if(event.keyCode==32){
+            gift = document.querySelector('.giftimg')
+gift.classList.add('animategift');
+setTimeout(()=>{
+gift.classList.remove('animategift')
+},200);
+        }
+       }); 
+
+   setInterval(() => {
+    gift=document.querySelector('.gift');
+    gameover = document.querySelector(".gameover");
+    lighthouse = document.querySelector("lighthouse");
+    gx= parseInt(window.getComputedStyle(gift,null).getPropertyValue('left'));
+    gy= parseInt(window.getComputedStyle(gift,null).getPropertyValue('top'));
+    ox= parseInt(window.getComputedStyle(lighthouse,null).getPropertyValue('left'));
+    oy= parseInt(window.getComputedStyle(lighthouse,null).getPropertyValue('top'));
+offsetX = Math.abs(dx-ox);
+offsetY= Math.abs(dy-oy);
+console.log(offsetX,offsetY);
+if(offsetX<93 && offsetY<52){
+    gameover.style.visibility = 'visible';
+    obstacle.classList.remove('santaani');
+    obstacle.classList.remove('gift');
+    obstacle.classList.remove('lighthouseani')
+}  
+});      
+  
+</script>
+</body>
+</html>
