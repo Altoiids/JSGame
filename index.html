@@ -13,21 +13,34 @@
     <div class="gamecontainer">
     
         <div class="santa">
+            <div class="score">Score: 0</div>
             <img class="santaimg santaani" src="public/assets/santaa.png">
         </div>
+        
         <div class="gameover"></div>
-        <div class="score"></div>
-        <div class="gift">
+        <!-- <div class="gift ">
             <img src="public/assets/gift.png" class="giftimg">
-        </div>
+        </div> -->
         <div class="lighthouse ">
             <img src="public/assets/house1.png" class="lighthouseimg lighthouseani">
         </div>
-        <div class="darkhouse"></div>
+        <div class="darkhouse">
+            <img src="public/assets/darkhouse1.png" class="darkhouseimg lighthouseani">
+        </div>
 
 </div>
+
+<div class="card">
+    <div class="santaimg santaani divabove">
+    <img class = "star" src="public/assets/gift.png"> </div>
+         <!-- <img class="box-front lighthouseani" src="public/assets/box-front-2.png"> -->
+    <img class="box-back lighthouseani box1" src="public/assets/box-back-2.png">
+    <img class="box-back lighthouseani box2" src="public/assets/box-back-2.png"> 
+  </div>
+
+
 <script>
-    document.addEventListener("keydown", (event) => {
+     /* document.addEventListener("keydown", (event) => {
         console.log(event.keyCode);
         if(event.keyCode==32){
             gift = document.querySelector('.giftimg')
@@ -36,27 +49,80 @@ setTimeout(()=>{
 gift.classList.remove('animategift')
 },200);
         }
+       }); */ 
+
+       document.addEventListener("keydown", (event) => {
+        
+        console.log(event.keyCode);
+        if(event.keyCode==32){
+            gift = document.querySelector('.star');
+            divabove = document.querySelector('.divabove')
+            
+gift.classList.add('stars');
+//divabove.classList.remove('santaani')
+setTimeout(()=>{
+    gift = document.querySelector('.stars')
+gift.classList.remove('stars');
+//divabove.classList.add('santaani')
+console.log("check");
+},400);
+        }
        }); 
 
-   setInterval(() => {
-    santa=document.querySelector('.santaimg');
-    gift=document.querySelector('.giftimg');
-    gameover = document.querySelector(".gameover");
-    lighthouse = document.querySelector(".lighthouseimg");
-    gx= parseInt(window.getComputedStyle(gift,null).getPropertyValue('left'));
-    gy= parseInt(window.getComputedStyle(gift,null).getPropertyValue('top'));
-    ox= parseInt(window.getComputedStyle(lighthouse,null).getPropertyValue('left'));
-    oy= parseInt(window.getComputedStyle(lighthouse,null).getPropertyValue('top'));
-offsetX = Math.abs(gx-ox);
-offsetY= Math.abs(gy-oy);
-console.log(offsetX,offsetY);
-if(offsetX<1050 && offsetY<200){
-    gameover.style.visibility = 'visible';
-    santa.classList.remove('santaani');
-    gift.classList.remove('animategift');
-    lighthouse.classList.remove('lighthouseani')
-}  
-},10);      
+
+     
+
+
+setInterval(() => {
+    gift = document.querySelector('.star');
+    gameOver = document.querySelector('.gameOver');
+    box1 = document.querySelector('.lighthouseimg');
+    box2 = document.querySelector('.darkhouseimg');
+   
+
+
+    dx = parseInt(window.getComputedStyle(gift, null).getPropertyValue('left'));
+    dy = parseInt(window.getComputedStyle(gift, null).getPropertyValue('top'));
+
+    ox = parseInt(window.getComputedStyle(box1, null).getPropertyValue('left'));
+    oy = parseInt(window.getComputedStyle(box1, null).getPropertyValue('top'));
+    gx = parseInt(window.getComputedStyle(box2, null).getPropertyValue('left'));
+    gy = parseInt(window.getComputedStyle(box2, null).getPropertyValue('top'));
+
+    offsetX1 = Math.abs(dx - ox);
+    offsetY1 = Math.abs(dy - oy);
+     
+    offsetX2 = Math.abs(dx - gx);
+    offsetY2 = Math.abs(dy - gy);
+   //console.log(dx);
+    //console.log(dy);
+    console.log(ox);
+    console.log(oy);
+    console.log(gx);
+    console.log(gy);
+    //console.log(offsetX1, offsetY1);
+    //console.log(offsetX2, offsetY2);
+    if (offsetX1 < 73 && offsetY1 < 52) {
+        gameOver.innerHTML = "Game Over - Reload to Play Again";
+        
+       
+    }
+    else if (offsetX2 < 145 && cross) {
+        score += 1;
+        updateScore(score);
+        cross = false;
+        setTimeout(() => {
+            cross = true;
+        }, 1000);
+      
+
+    }
+
+}, 10);
+
+function updateScore(score) {
+    scoreCont.innerHTML = "Your Score: " + score
+}
   
 </script>
 </body>

@@ -20,6 +20,7 @@ body{
    position: absolute;
    width:6vh;
     height: 6vh;
+    z-index: 1;
 }
 
 
@@ -29,14 +30,21 @@ body{
 @keyframes animategift{
     0%{
         margin-top: 7.5vh;
+        
     }
     50%{
         margin-top: 30vh;
     }
     100%{
         margin-top: 60vh;
+        
     }
 }
+
+.santaani{
+    animation: santaani 4s linear infinite;
+}
+
 @keyframes santaani{
     0%{
         left: -10vw;
@@ -47,9 +55,14 @@ body{
     }
 }
 
-.santaani{
-    animation: santaani 5s linear infinite;
+
+
+
+
+.lighthouseani{
+    animation: lighthouseani 10s linear infinite;
 }
+
 
 @keyframes lighthouseani{
     0%{
@@ -61,9 +74,7 @@ body{
     }
 }
 
-.lighthouseani{
-    animation: lighthouseani 8s linear infinite;
-}
+
 
 .lighthouseimg{
     position: relative;
@@ -72,3 +83,96 @@ body{
 
 
 
+.card {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+  
+  margin-top: -100vh;
+  }
+  .box-back {
+    position:relative;
+    bottom:-65vh;
+   
+    
+    z-index:2;
+    height: 6vh;
+    width: 4vw;
+    margin-left:35vh;
+  }
+  /* .box-front {
+    z-index: 2;
+    position: relative;
+    bottom:-65vh;
+    
+    height: 4vh;
+    width: 3vw;
+  } */
+  
+  
+  .stars {
+    z-index: 2;
+   
+    animation: 8s forwards starfall; 
+    height: 4vh;
+    width: 2vw;
+    margin-top: 22vh;
+
+     /* transform: translateY(-400px); */
+    /* animation-name: starfall ,santaani;
+    animation-duration:8s,5s ;
+    animation-fill-mode: forwards,linear;
+    animation-delay: 1s; */
+    /* @keyframes duration | easing-function | delay | name */
+
+  }
+  
+  @keyframes starfall {
+    0% {
+      transform: translateY(20vh);
+    }
+    100% {
+      transform: translateY(600vh);
+    }
+  
+  }
+
+  .star{
+    height: 4vh;
+    width: 2vw;
+    margin-top: 15vh;
+  }
+.darkhouseimg{
+    position: relative;
+    height: 50vh;
+    width: 30vw;
+    margin-top:-150vh;
+    margin-left: 90vh;
+}
+.box2{
+
+    margin-left: 90vh;
+}
+
+.score{
+    position:relative;
+    color:aliceblue;
+    margin-left: 1vw;
+    margin-top: 2vh;
+    
+}
+
+/* .giftani{
+    animation: giftani 4s linear infinite;
+}
+
+@keyframes giftani{
+    0%{
+        left: ;
+
+    }
+    100%{
+        left: 100vw;
+    }
+} */
