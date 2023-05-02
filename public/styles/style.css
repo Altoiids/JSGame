@@ -42,7 +42,7 @@ body{
 }
 
 .santaani{
-    animation: santaani 4s linear infinite;
+    animation: santaani 40s linear infinite;
 }
 
 @keyframes santaani{
@@ -176,3 +176,11 @@ body{
         left: 100vw;
     }
 } */
+
+.gameover{
+    color:aliceblue;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    font-size: 4vw;
+}

@@ -31,11 +31,12 @@
 </div>
 
 <div class="card">
-    <div class="santaimg santaani divabove">
+    <div class = "santaimg santaani divabove">
     <img class = "star" src="public/assets/gift.png"> </div>
          <!-- <img class="box-front lighthouseani" src="public/assets/box-front-2.png"> -->
-    <img class="box-back lighthouseani box1" src="public/assets/box-back-2.png">
+    <!-- <img class="box-back lighthouseani box1" src="public/assets/box-back-2.png">
     <img class="box-back lighthouseani box2" src="public/assets/box-back-2.png"> 
+  </div> -->
   </div>
 
 
@@ -63,6 +64,7 @@ gift.classList.add('stars');
 setTimeout(()=>{
     gift = document.querySelector('.stars')
 gift.classList.remove('stars');
+
 //divabove.classList.add('santaani')
 console.log("check");
 },400);
@@ -75,53 +77,90 @@ console.log("check");
 
 setInterval(() => {
     gift = document.querySelector('.star');
-    gameOver = document.querySelector('.gameOver');
+    gameover = document.querySelector('.gameover');
     box1 = document.querySelector('.lighthouseimg');
     box2 = document.querySelector('.darkhouseimg');
+    score = document.querySelector('.score');
+    santa = document.querySelector('.santaimg');
+    divabove=document.querySelector('.divabove');
+    
    
+    var rect = gift.getBoundingClientRect();
+    //console.log(rect.top, rect.right, rect.bottom, rect.left);
+    dy= rect.top;
+    dx= rect.left;
 
 
+    /*console.log('henlo', window.getComputedStyle(gift, null).getPropertyValue('left'));
+    console.log(window.getComputedStyle(gift, null).getPropertyValue('top'));
     dx = parseInt(window.getComputedStyle(gift, null).getPropertyValue('left'));
-    dy = parseInt(window.getComputedStyle(gift, null).getPropertyValue('top'));
+    dy = parseInt(window.getComputedStyle(gift, null).getPropertyValue('top'));*/
+    var rect1 = box1.getBoundingClientRect();
+    //console.log(rect.top, rect.right, rect.bottom, rect.left);
+    oy= rect1.top;
+    ox= rect1.left;
+    var rect2 = box2.getBoundingClientRect();
+    //console.log(rect.top, rect.right, rect.bottom, rect.left);
+    gy= rect2.top;
+    gx= rect2.left;
 
-    ox = parseInt(window.getComputedStyle(box1, null).getPropertyValue('left'));
+
+    /*ox = parseInt(window.getComputedStyle(box1, null).getPropertyValue('left'));
     oy = parseInt(window.getComputedStyle(box1, null).getPropertyValue('top'));
     gx = parseInt(window.getComputedStyle(box2, null).getPropertyValue('left'));
-    gy = parseInt(window.getComputedStyle(box2, null).getPropertyValue('top'));
+    gy = parseInt(window.getComputedStyle(box2, null).getPropertyValue('top'));*/
 
     offsetX1 = Math.abs(dx - ox);
     offsetY1 = Math.abs(dy - oy);
-     
+    console.log(rect.left)
+    // console.log(rect1.left)
+    if (rect.left== 0) {
+        console.log('equals')
+    }
     offsetX2 = Math.abs(dx - gx);
     offsetY2 = Math.abs(dy - gy);
-   //console.log(dx);
-    //console.log(dy);
+   /*console.log(dx);
+    console.log(dy);
     console.log(ox);
     console.log(oy);
     console.log(gx);
-    console.log(gy);
-    //console.log(offsetX1, offsetY1);
-    //console.log(offsetX2, offsetY2);
-    if (offsetX1 < 73 && offsetY1 < 52) {
-        gameOver.innerHTML = "Game Over - Reload to Play Again";
+    console.log(gy);*/
+    // console.log(offsetX1, offsetY1);
+    // console.log(offsetX2, offsetY2);
+    cross=true; 
+    //scoreval=0;
+    // if (offsetX1 <5  && offsetY1 < 5) {
+
+    if(((rect.left>=rect1.left)&&(rect.left<=(rect1.left+rect1.width))&&(rect.top>=rect1.top)&&(rect.top<=(rect1.top+rect1.height)))) {
+
+    // if(offsetX1 == 0) {
+        console.log('becomes 0')
+        gameover.innerHTML = "Game Over - Reload to Play Again";
+        box1.classList.remove('lighthouseani');
+        box2.classList.remove('lighthouseani');
+        divabove.classList.remove('santaani');
+        santa.classList.remove('santaani');
+
         
        
     }
-    else if (offsetX2 < 145 && cross) {
-        score += 1;
-        updateScore(score);
+    
+    if (offsetX2 < 50 && offsetY2 < 45 && cross ) {
+        scoreval += 1;
+        console.log(scoreval);
+        updateScore(scoreval);
         cross = false;
         setTimeout(() => {
             cross = true;
-        }, 1000);
+        }, 4000);
       
 
     }
 
 }, 10);
 
-function updateScore(score) {
-    scoreCont.innerHTML = "Your Score: " + score
+function updateScore(scoreval) {
+    score.innerHTML = "Score: " + scoreval;
 }
   
 </script>
