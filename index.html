@@ -21,7 +21,7 @@
         <!-- <div class="gift ">
             <img src="public/assets/gift.png" class="giftimg">
         </div> -->
-        <div class="lighthouse ">
+        <div class="lighthouse lighthouseani">
             <img src="public/assets/house1.png" class="lighthouseimg lighthouseani">
         </div>
         <div class="darkhouse">
@@ -66,7 +66,7 @@ setTimeout(()=>{
 gift.classList.remove('stars');
 
 //divabove.classList.add('santaani')
-console.log("check");
+//console.log("check");
 },400);
         }
        }); 
@@ -104,6 +104,9 @@ setInterval(() => {
     gy= rect2.top;
     gx= rect2.left;
 
+    //console.log(gx);
+    //console.log(gy);
+
 
     /*ox = parseInt(window.getComputedStyle(box1, null).getPropertyValue('left'));
     oy = parseInt(window.getComputedStyle(box1, null).getPropertyValue('top'));
@@ -112,11 +115,12 @@ setInterval(() => {
 
     offsetX1 = Math.abs(dx - ox);
     offsetY1 = Math.abs(dy - oy);
-    console.log(rect.left)
+    //console.log(rect.left)
     // console.log(rect1.left)
-    if (rect.left== 0) {
-        console.log('equals')
-    }
+    offsetX1 = Math.
+    //if (rect.left== 0) {
+     //   console.log('equals');
+    //}
     offsetX2 = Math.abs(dx - gx);
     offsetY2 = Math.abs(dy - gy);
    /*console.log(dx);
@@ -144,8 +148,10 @@ setInterval(() => {
         
        
     }
-    
-    if (offsetX2 < 50 && offsetY2 < 45 && cross ) {
+    //console.log(rect2.width);
+    //console.log(rect2.height);
+
+      if(((rect.left>=rect2.left)&&(rect.left<=(rect2.left+rect2.width))&&(rect.top>=rect2.top)&&(rect.top<=(rect2.top+rect2.height)))) {
         scoreval += 1;
         console.log(scoreval);
         updateScore(scoreval);
@@ -153,9 +159,23 @@ setInterval(() => {
         setTimeout(() => {
             cross = true;
         }, 4000);
-      
+      }
 
-    }
+      setTimeout(() => {
+        anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
+        if(anisanta>=1.5)
+        {newanisanta = anisanta - 0.0005;}
+        santa.style.animationDuration = newanisanta + 's';
+        //console.log('New animation duration: ', newanisanta)
+    }, 500);
+
+    setTimeout(() => {
+        anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+        if(anigift>=1.5)
+        {newanigift = anigift - 0.0005;}
+        divabove.style.animationDuration = newanigift + 's';
+        //console.log('New animation duration: ', newanigift)
+    }, 500);
 
 }, 10);
 

@@ -42,7 +42,7 @@ body{
 }
 
 .santaani{
-    animation: santaani 40s linear infinite;
+    animation: santaani 5s linear infinite;
 }
 
 @keyframes santaani{
@@ -79,7 +79,10 @@ body{
 .lighthouseimg{
     position: relative;
     
+    
+    
 }
+
 
 
 
