@@ -132,7 +132,7 @@ setInterval(() => {
     // console.log(offsetX1, offsetY1);
     // console.log(offsetX2, offsetY2);
     cross=true; 
-    //scoreval=0;
+    scoreval=0;
     // if (offsetX1 <5  && offsetY1 < 5) {
 
     if(((rect.left>=rect1.left)&&(rect.left<=(rect1.left+rect1.width))&&(rect.top>=rect1.top)&&(rect.top<=(rect1.top+rect1.height)))) {
@@ -158,12 +158,12 @@ setInterval(() => {
         cross = false;
         setTimeout(() => {
             cross = true;
-        }, 4000);
+        }, 1000);
       }
 
       setTimeout(() => {
         anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
-        if(anisanta>=1.5)
+        if(anisanta>=2.5)
         {newanisanta = anisanta - 0.0005;}
         santa.style.animationDuration = newanisanta + 's';
         //console.log('New animation duration: ', newanisanta)
@@ -171,7 +171,7 @@ setInterval(() => {
 
     setTimeout(() => {
         anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
-        if(anigift>=1.5)
+        if(anigift>=2.5)
         {newanigift = anigift - 0.0005;}
         divabove.style.animationDuration = newanigift + 's';
         //console.log('New animation duration: ', newanigift)
