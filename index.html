@@ -13,14 +13,12 @@
     <div class="gamecontainer">
       <div class="santa">
         <div class="score">Score: 0</div>
-        <div class="highscore score">Highest Score: 0</div>
+        <div class="highscore score" id="highScore">Highest Score: 0</div>
         <img class="santaimg santaani" src="public/assets/santaa.png" />
       </div>
 
       <div class="gameover"></div>
-      <!-- <div class="gift ">
-            <img src="public/assets/gift.png" class="giftimg">
-        </div> -->
+      
       <div class="lighthouse lighthouseani">
         <img
           src="public/assets/lighthouse1.png"
@@ -39,28 +37,13 @@
       <div class="santaimg santaani divabove">
         <img class="star" src="public/assets/gift.png" />
       </div>
-      <!-- <img class="box-front lighthouseani" src="public/assets/box-front-2.png"> -->
-      <!-- <img class="box-back lighthouseani box1" src="public/assets/box-back-2.png">
-    <img class="box-back lighthouseani box2" src="public/assets/box-back-2.png"> 
-  </div> -->
+      
     </div>
 
     <script>
-      /* document.addEventListener("keydown", (event) => {
-           console.log(event.keyCode);
-           if(event.keyCode==32){
-               gift = document.querySelector('.giftimg')
-   gift.classList.add('animategift');
-   setTimeout(()=>{
-   gift.classList.remove('animategift')
-   },200);
-           }
-          }); */
-      var highScore = localStorage.getItem("highscore");
-      if (highScore === null) {
-        highScore = 0;
-        
-      }
+    
+      var highScore = localStorage.getItem("highScore") || 0;
+
       cross = true;
       scoreval = 0;
       audio = new Audio("public/assets/music.mp3");
@@ -70,7 +53,7 @@
       gameover = document.querySelector(".gameover");
       box1 = document.querySelector(".lighthouseimg");
       box2 = document.querySelector(".darkhouseimg");
-      box2 = document.querySelector(".darkhouseimg1");
+      
       score = document.querySelector(".score");
       santa = document.querySelector(".santaimg");
       divabove = document.querySelector(".divabove");
@@ -79,7 +62,7 @@
       }, 1000);
 
       document.addEventListener("keydown", (event) => {
-        console.log(event.keyCode);
+        
         if (event.keyCode == 32) {
           gift = document.querySelector(".star");
           divabove = document.querySelector(".divabove");
@@ -89,20 +72,20 @@
           setTimeout(() => {
             audiodrop.pause();
           }, 1000);
-          //divabove.classList.remove('santaani')
+
+
+          
           setTimeout(() => {
             gift = document.querySelector(".stars");
             gift.classList.remove("stars");
 
-            //divabove.classList.add('santaani')
-            //console.log("check");
+           
           }, 400);
         }
       });
 
       document.addEventListener("keydown", (event) => {
         if (event.keyCode == 77) {
-          console.log("mute");
           audio.pause();
         }
       });
@@ -115,52 +98,13 @@
         score = document.querySelector(".score");
         santa = document.querySelector(".santaimg");
         divabove = document.querySelector(".divabove");
-        box2 = document.querySelector(".darkhouseimg1");
+        
         var rect = gift.getBoundingClientRect();
-        //console.log(rect.top, rect.right, rect.bottom, rect.left);
-        dy = rect.top;
-        dx = rect.left;
-
-        /*console.log('henlo', window.getComputedStyle(gift, null).getPropertyValue('left'));
-            console.log(window.getComputedStyle(gift, null).getPropertyValue('top'));
-            dx = parseInt(window.getComputedStyle(gift, null).getPropertyValue('left'));
-            dy = parseInt(window.getComputedStyle(gift, null).getPropertyValue('top'));*/
         var rect1 = box1.getBoundingClientRect();
-        //console.log(rect.top, rect.right, rect.bottom, rect.left);
-        oy = rect1.top;
-        ox = rect1.left;
         var rect2 = box2.getBoundingClientRect();
-        //console.log(rect.top, rect.right, rect.bottom, rect.left);
-        gy = rect2.top;
-        gx = rect2.left;
+        
+  
 
-        //console.log(gx);
-        //console.log(gy);
-
-        /*ox = parseInt(window.getComputedStyle(box1, null).getPropertyValue('left'));
-            oy = parseInt(window.getComputedStyle(box1, null).getPropertyValue('top'));
-            gx = parseInt(window.getComputedStyle(box2, null).getPropertyValue('left'));
-            gy = parseInt(window.getComputedStyle(box2, null).getPropertyValue('top'));*/
-
-        offsetX1 = Math.abs(dx - ox);
-        offsetY1 = Math.abs(dy - oy);
-        //console.log(rect.left)
-        // console.log(rect1.left)
-        offsetX1 = //if (rect.left== 0) {
-        //   console.log('equals');
-        //}
-        Math.offsetX2 = Math.abs(dx - gx);
-        offsetY2 = Math.abs(dy - gy);
-        /*console.log(dx);
-             console.log(dy);
-             console.log(ox);
-             console.log(oy);
-             console.log(gx);
-             console.log(gy);*/
-        // console.log(offsetX1, offsetY1);
-        // console.log(offsetX2, offsetY2);
-
-        // if (offsetX1 <5  && offsetY1 < 5) {
 
         if (
           rect.left >= rect1.left &&
@@ -168,8 +112,8 @@
           rect.top >= rect1.top &&
           rect.top <= rect1.top + box1.clientHeight
         ) {
-          // if(offsetX1 == 0) {
-          console.log("becomes 0");
+          
+          
           
 
           gameover.innerHTML =
@@ -187,11 +131,9 @@
 
           setTimeout(() => {
             location.href = "home.html";
-          }, 2000);
+          }, 4000);
         }
-        //console.log(rect2.width);
-        //console.log(rect2.height);
-
+        
         if (
           rect.left >= rect2.left &&
           rect.left <= rect2.left + rect2.width &&
@@ -200,8 +142,7 @@
           && cross
         ) {
           scoreval += 1;
-          console.log(scoreval);
-          console.log("checkTheFunc");
+          
           updateScore(scoreval);
           cross = false;
           setTimeout(() => {
@@ -209,88 +150,57 @@
           }, 1000);
         }
 
-        /* setTimeout(() => {
-                anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
-                if (anisanta >= 2.5) { newanisanta = anisanta - 0.0005; }
-                santa.style.animationDuration = newanisanta + 's';
-                
-            }, 500);
-
-            setTimeout(() => {
-                anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
-                if (anigift >= 2.5) { newanigift = anigift - 0.0005; }
-                divabove.style.animationDuration = newanigift + 's';
-                //console.log('New animation duration: ', newanigift)
-            }, 500);*/
-
-        /*console.log(
-          window
-            .getComputedStyle(divabove, null)
-            .getPropertyValue("animation-duration")
-        );*/
+        
         checkHighScore();
-        //console.log("check1");
-        //console.log(scoreval);
+        
       }
       , 10);
 
       function updateScore(scoreval) {
+        santa = document.querySelector(".santaimg");
+        var rect3 = santa.getBoundingClientRect();
         score.innerHTML = "Score: " + scoreval;
-        if (scoreval >= 1 && scoreval < 5) {
+        
+
+        if (scoreval >= 1 && scoreval < 5  ) {
+
           console.log("condition one called");
+          divabove.style.animationDuration = "4.5s";
+          santa.style.animationDuration = "4.5s";
+          console.log(santa.style.animationDuration)
+        } else if (scoreval >= 5 && scoreval < 10) {
+          divabove.style.animationDuration = "4s";
+          santa.style.animationDuration = "4s";
+        } else if (scoreval >= 10 && scoreval < 15) {
           divabove.style.animationDuration = "3.5s";
           santa.style.animationDuration = "3.5s";
-        } else if (scoreval >= 5 && scoreval < 10) {
-          divabove.style.animationDuration = "3s";
-          santa.style.animationDuration = "3s";
-        } else if (scoreval >= 10 && scoreval < 15) {
+        } else if (scoreval >= 15 && scoreval < 20) {
+          divabove.style.animationDuration = "3.1s";
+          santa.style.animationDuration = "3.1s";
+        } else if (scoreval >= 20 && scoreval < 25) {
+          divabove.style.animationDuration = "2.9s";
+          santa.style.animationDuration = "2.9s";
+        } else {
+          
           divabove.style.animationDuration = "2.5s";
           santa.style.animationDuration = "2.5s";
-        } else if (scoreval >= 15 && scoreval < 20) {
-          divabove.style.animationDuration = "2.1s";
-          santa.style.animationDuration = "2.1s";
-        } else if (scoreval >= 20 && scoreval < 25) {
-          divabove.style.animationDuration = "1.9s";
-          santa.style.animationDuration = "1.9s";
-        } else {
-          divabove.style.animationDuration = "1.5s";
-          santa.style.animationDuration = "1.5s";
+          console.log(divabove.style.animationDuration);
         }
       }
       function updatehighScore(highScore) {
-        console.log("check4");
+       
         highscore.innerHTML = "Highest Score: " + highScore;
       }
       function checkHighScore() {
-        console.log("check2");
-
-        newHighScore = scoreval;
-        console.log(newHighScore);
-        console.log(highScore);
-        if (newHighScore >= highScore) {
-          highScore = newHighScore;
-          localStorage.setItem("highscore", highScore);
-          updatehighScore(highScore);
-          console.log("check3");
-        }
-
-        /*function updatehighScore(highScore) {
-          console.log("check4");
-          score.innerHTML = "Highest Score: " + highScore;
-        }*/
-      }
+  if (scoreval > highScore) {
+    highScore = scoreval;
+    localStorage.setItem("highScore", highScore);
+  }
+  document.getElementById("highScore").innerHTML = "Highscore: " + highScore;
+}
 
 
-      /*setTimeout(() => {
-        light = document.querySelector(".darkhouseani");
-        light.classList.remove("darkhouseimg");
-        light.classList.add("darkhouseimg1");
-
-        
-
-        //divabove.classList.add('santaani')
-        //console.log("check");
-      }, 3000); */
+      
 
 
     </script>

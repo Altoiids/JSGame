@@ -1,0 +1,58 @@
+html{
+    background: url(../assets/rules.jpg) no-repeat center center fixed;
+    
+    background-size: cover;
+}
+
+body{
+    color: aliceblue;
+}
+
+.title{
+    display: flex;
+    
+    justify-content: center;
+    margin-top: 10vh;
+    font-size: 7vh;
+}
+.content{
+    display: flex;
+    justify-content: center; 
+    padding-top: 8vh;
+    font-size: 2.5vh;
+}
+
+.one{
+    padding-bottom: 5vh;
+    
+}
+.two{
+    padding-bottom: 5vh;
+    
+}
+
+.three{
+    padding-bottom: 5vh;
+}
+.four{
+    padding-bottom: 5vh; 
+}
+.end{
+    display: flex;
+    justify-content: center;
+    margin-top: 6vh;
+    font-size: 8vh;
+    
+}
+.back{
+    color:aliceblue;
+    display: flex;
+    justify-content: center;
+    margin-top: 6vh;
+    font-size: 4vh;
+     
+}
+
+a, a:link, a:visited{
+    color: aliceblue;
+}

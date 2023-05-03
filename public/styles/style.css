@@ -60,7 +60,7 @@ body{
 
 
 .lighthouseani{
-    animation: lighthouseani 10s linear infinite;
+    animation: lighthouseani linear 10s  infinite;
 }
 
 
@@ -69,6 +69,7 @@ body{
         left: -10vw;
 
     }
+    
     100%{
         left: 100vw;
     }
@@ -77,14 +78,8 @@ body{
 
 
 .lighthouseimg{
-    position: relative;
-    
-    
-    
+    position: relative; 
 }
-
-
-
 
 .card {
     position: relative;
@@ -104,14 +99,7 @@ body{
     width: 4vw;
     margin-left:35vh;
   }
-  /* .box-front {
-    z-index: 2;
-    position: relative;
-    bottom:-65vh;
-    
-    height: 4vh;
-    width: 3vw;
-  } */
+  
   
   
   .stars {
@@ -122,12 +110,6 @@ body{
     width: 2vw;
     margin-top: 22vh;
 
-     /* transform: translateY(-400px); */
-    /* animation-name: starfall ,santaani;
-    animation-duration:8s,5s ;
-    animation-fill-mode: forwards,linear;
-    animation-delay: 1s; */
-    /* @keyframes duration | easing-function | delay | name */
 
   }
   
@@ -146,12 +128,17 @@ body{
     width: 2vw;
     margin-top: 15vh;
   }
+
+
 .darkhouseimg{
     position: relative;
     height: 50vh;
     width: 30vw;
-    margin-top:-150vh;
-    margin-left: 90vh;
+    margin-top:-160vh;
+    opacity: 0;
+    
+    
+    
 }
 .box2{
 
@@ -166,19 +153,7 @@ body{
     
 }
 
-/* .giftani{
-    animation: giftani 4s linear infinite;
-}
 
-@keyframes giftani{
-    0%{
-        left: ;
-
-    }
-    100%{
-        left: 100vw;
-    }
-} */
 
 .gameover{
     color:aliceblue;
@@ -187,3 +162,23 @@ body{
     display: flex;
     font-size: 4vw;
 }
+.darkhouseani{
+    animation: darkhouseani 10s linear 3s  infinite;
+    
+    
+
+}
+
+
+@keyframes darkhouseani{
+    0%{
+        left: -10vw;
+  opacity: 1;
+    }
+    100%{
+        left: 100vw;
+        opacity: 1;
+    }
+}
+
+
