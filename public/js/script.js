@@ -16,6 +16,7 @@ divabove = document.querySelector(".divabove");
 var rect = gift.getBoundingClientRect();
 var rect1 = box1.getBoundingClientRect();
 var rect2 = box2.getBoundingClientRect();
+var rect3 = divabove.getBoundingClientRect();
 Lives = document.querySelector(".Lives");
 
 setTimeout(() => {
@@ -52,23 +53,23 @@ document.addEventListener("keydown", (event) => {
   console.log(box1.clientWidth);
   console.log(box1.clientHeight);
   console.log(
-    rect.left <= rect2.left,
-    rect.left <= rect2.left + rect2.width,
+    gift.offsetLeft <= rect2.left,
+    gift.offsetLeft <= rect2.left + rect2.width,
     rect.top <= rect2.top,
     rect.top <= rect2.top + rect2.height,
-    rect.left <= rect1.left,
-    rect.left <= rect1.left + box1.clientWidth / 2,
+    gift.offsetLeft >= rect1.left,
+    gift.offsetLeft <= rect1.left + box1.clientWidth / 2,
     rect.top <= rect1.top,
     rect.top <= rect1.top + box1.clientHeight
   );
 
-  if (
-    rect.left <= rect2.left &&
-    rect.left <= rect2.left + rect2.width &&
+  if (event.code == "Space" &&
+    gift.offsetLeft <= box2.offsetLeft &&
+    gift.offsetLeft <= box2.offsetLeft + rect2.width &&
     rect.top <= rect2.top &&
     rect.top <= rect2.top + rect2.height &&
-    rect.left <= rect1.left &&
-    rect.left <= rect1.left + box1.clientWidth / 2 &&
+    gift.offsetLeft >= rect1.left &&
+    gift.offsetLeft <= rect1.left + box1.clientWidth / 2 &&
     rect.top <= rect1.top &&
     rect.top <= rect1.top + box1.clientHeight
   ) {
@@ -83,6 +84,9 @@ document.addEventListener("keydown", (event) => {
       box2.classList.remove("darkhouseani");
       divabove.classList.remove("santaani");
       santa.classList.remove("santaani");
+      santa.style.display = "none";
+      box1.style.display = "none";
+      box2.style.display = "none";
     }
   }
 });
@@ -119,6 +123,9 @@ setInterval(() => {
     box2.classList.remove("darkhouseani");
     divabove.classList.remove("santaani");
     santa.classList.remove("santaani");
+    santa.style.display = "none";
+    box1.style.display = "none";
+    box2.style.display = "none";
 
     audioend.play();
     setTimeout(() => {
@@ -147,20 +154,83 @@ setInterval(() => {
     }, 1000);
   }
 
-  // document.addEventListener("keydown", (event) => {
-  //   console.log("check");
-  //   if (event.code == "Space" && rect.left <= rect2.left &&
-  //   rect.left >= rect2.left + rect2.width &&
-  //   rect.top <= rect2.top &&
-  //   rect.top >= rect2.top + rect2.height && rect.left <= rect1.left &&
-  //   rect.left >= rect1.left + box1.clientWidth / 2 &&
-  //   rect.top <= rect1.top &&
-  //   rect.top >= rect1.top + box1.clientHeight){
-  //     Lives -= 1;
-  //     console.log("hello lets see");
-  //     Lives.innerHTML = "Lives : "+ Lives;
-  //   }
-  // });
+
+  if (scoreval >= 1 && scoreval < 5 && santa.style.animationDuration < "4s" ) {
+
+    setTimeout(() => {
+      console.log("function called");
+      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
+      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+      newanisanta = anisanta - 0.0000001;
+      newanigift = anigift - 0.0000001;
+      santa.style.animationDuration = newanisanta + 's';
+      divabove.style.animationDuration = newanigift + 's';
+      console.log('New animation duration: ', newanisanta);
+      console.log('New animation duration: ', newanigift);
+  }, 5);
+  } 
+  
+  else if (scoreval >= 5 && scoreval < 10 &&  santa.style.animationDuration < "3.5s") {
+ 
+    setTimeout(() => {
+      console.log("function called");
+      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
+      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+      newanisanta = anisanta - 0.0000001;
+      newanigift = anigift - 0.0000001;
+      santa.style.animationDuration = newanisanta + 's';
+      divabove.style.animationDuration = newanigift + 's';
+      console.log('New animation duration: ', newanisanta);
+      console.log('New animation duration: ', newanigift);
+  }, 5);
+
+    
+  } else if (scoreval >= 10 && scoreval < 15 && santa.style.animationDuration < "3s" ) {
+   
+    setTimeout(() => {
+      console.log("function called");
+      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
+      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+      newanisanta = anisanta - 0.0000001;
+      newanigift = anigift - 0.0000001;
+      santa.style.animationDuration = newanisanta + 's';
+      divabove.style.animationDuration = newanigift + 's';
+      console.log('New animation duration: ', newanisanta);
+      console.log('New animation duration: ', newanigift);
+  }, 5);
+
+
+  } else if (scoreval >= 15 && scoreval < 20 && santa.style.animationDuration < "2.5s" ) {
+    
+    setTimeout(() => {
+      console.log("function called");
+      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
+      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+      newanisanta = anisanta - 0.0000001;
+      newanigift = anigift - 0.0000001;
+      santa.style.animationDuration = newanisanta + 's';
+      divabove.style.animationDuration = newanigift + 's';
+      console.log('New animation duration: ', newanisanta);
+      console.log('New animation duration: ', newanigift);
+  }, 5);
+
+  } else if (scoreval >= 20 && scoreval < 25 && santa.style.animationDuration < "2s" ) {
+
+    setTimeout(() => {
+      console.log("function called");
+      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
+      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+      newanisanta = anisanta - 0.0000001;
+      newanigift = anigift - 0.0000001;
+      santa.style.animationDuration = newanisanta + 's';
+      divabove.style.animationDuration = newanigift + 's';
+      console.log('New animation duration: ', newanisanta);
+      console.log('New animation duration: ', newanigift);
+  }, 5);
+
+
+  } 
+  
 
   checkHighScore();
 }, 10);
@@ -170,25 +240,7 @@ function updateScore(scoreval) {
   var rect3 = santa.getBoundingClientRect();
   score.innerHTML = "Score: " + scoreval;
 
-  if (scoreval >= 1 && scoreval < 5) {
-    divabove.style.animationDuration = "4.5s";
-    santa.style.animationDuration = "4.5s";
-  } else if (scoreval >= 5 && scoreval < 10) {
-    divabove.style.animationDuration = "4s";
-    santa.style.animationDuration = "4s";
-  } else if (scoreval >= 10 && scoreval < 15) {
-    divabove.style.animationDuration = "3.5s";
-    santa.style.animationDuration = "3.5s";
-  } else if (scoreval >= 15 && scoreval < 20) {
-    divabove.style.animationDuration = "3.1s";
-    santa.style.animationDuration = "3.1s";
-  } else if (scoreval >= 20 && scoreval < 25) {
-    divabove.style.animationDuration = "2.9s";
-    santa.style.animationDuration = "2.9s";
-  } else {
-    divabove.style.animationDuration = "2.5s";
-    santa.style.animationDuration = "2.5s";
-  }
+  
 }
 function updatehighScore(highScore) {
   highscore.innerHTML = "Highest Score: " + highScore;

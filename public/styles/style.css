@@ -51,7 +51,7 @@ body {
 }
 
 .lighthouseani {
-  animation: lighthouseani linear 10s infinite;
+  animation: lighthouseani linear 8s infinite;
 }
 
 @keyframes lighthouseani {
@@ -131,12 +131,13 @@ body {
 .gameover {
   color: aliceblue;
   justify-content: center;
-  position: relative;
+  
+  vertical-align: center;
   display: flex;
   font-size: 4vw;
 }
 .darkhouseani {
-  animation: darkhouseani 10s linear 3s infinite;
+  animation: darkhouseani 8s linear 4s infinite;
 }
 
 @keyframes darkhouseani {
@@ -156,3 +157,5 @@ body {
   margin-left: 1vw;
   margin-top: 2vh;
 }
+
+
