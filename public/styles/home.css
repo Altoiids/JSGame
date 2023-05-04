@@ -1,59 +1,57 @@
-    body{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    html{
-        
-        background: url(../assets/homebg2.jpg) no-repeat center center fixed;
-    
-        background-size: cover;
-       
-        
-    }
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background: url(../assets/homebg2.jpg) no-repeat center center fixed;
 
-    #startbtn{
-        display: flex;
-        position: relative;
-        margin-top: 25%;
-        margin-left: 40%;
-        height: 12vh;
-        width: 16vw;
-        background-color: #ddbc56;
-        border-radius: 10%;
-        align-items: center;
-        align-self: center;
-        justify-content: center;
-     font-weight: bold;
-     font-size: 4vh;
-    }
-    
-    #rulesbtn{
-        display: flex;
-        position: relative;
-        margin-top: 3%;
-        margin-left: 40%;
-        height: 12vh;
-        width: 16vw;
-        background-color: #ddbc56;
-        border-radius: 10%;
-        align-items: center;
-        align-self: center;
-        justify-content: center;
-     font-weight: bold;
-     font-size: 4vh;
-     
-    }
+  background-size: cover;
+}
 
-    .btn{
-        cursor: pointer;
-        box-shadow: 9px 9px 9px  #ede4cb;
-        border: none;
-    }
-    .btn:hover {background-color: #fbd976}
+#startbtn {
+  display: flex;
+  position: relative;
+  margin-top: 25%;
+  margin-left: 40%;
+  height: 12vh;
+  width: 16vw;
+  background-color: #ddbc56;
+  border-radius: 10%;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 4vh;
+}
 
-    .button:active {
-        background-color: #fbd976;
-        box-shadow: 0 2vh #ede4cb;
-        transform: translateY(2vh);
-      }
+#rulesbtn {
+  display: flex;
+  position: relative;
+  margin-top: 3%;
+  margin-left: 40%;
+  height: 12vh;
+  width: 16vw;
+  background-color: #ddbc56;
+  border-radius: 10%;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 4vh;
+}
+
+.btn {
+  cursor: pointer;
+  box-shadow: 9px 9px 9px #ede4cb;
+  border: none;
+}
+.btn:hover {
+  background-color: #fbd976;
+}
+
+.button:active {
+  background-color: #fbd976;
+  box-shadow: 0 2vh #ede4cb;
+  transform: translateY(2vh);
+}

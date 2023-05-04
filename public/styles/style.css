@@ -1,184 +1,158 @@
-*{
-    margin: 0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    background-image:url(../assets/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
-    overflow: hidden;
+body {
+  background-image: url(../assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  overflow: hidden;
 }
-.santaimg{
-    position: relative;
-    height: 22vh;
-    width:30vw;
-    margin-top:7vh;
-    
+.santaimg {
+  position: relative;
+  height: 22vh;
+  width: 30vw;
+  margin-top: 7vh;
 }
-.giftimg{
-   position: absolute;
-   width:6vh;
-    height: 6vh;
-    z-index: 1;
-}
-
-
-.animategift{
-    animation: animategift 2s ease-in-out;
-}
-@keyframes animategift{
-    0%{
-        margin-top: 7.5vh;
-        
-    }
-    50%{
-        margin-top: 30vh;
-    }
-    100%{
-        margin-top: 60vh;
-        
-    }
+.giftimg {
+  position: absolute;
+  width: 6vh;
+  height: 6vh;
+  z-index: 1;
 }
 
-.santaani{
-    animation: santaani 5s linear infinite;
+.animategift {
+  animation: animategift 2s ease-in-out;
+}
+@keyframes animategift {
+  0% {
+    margin-top: 7.5vh;
+  }
+  50% {
+    margin-top: 30vh;
+  }
+  100% {
+    margin-top: 60vh;
+  }
 }
 
-@keyframes santaani{
-    0%{
-        left: -10vw;
-
-    }
-    100%{
-        left: 100vw;
-    }
+.santaani {
+  animation: santaani 5s linear infinite;
 }
 
-
-
-
-
-.lighthouseani{
-    animation: lighthouseani linear 10s  infinite;
+@keyframes santaani {
+  0% {
+    left: -10vw;
+  }
+  100% {
+    left: 100vw;
+  }
 }
 
-
-@keyframes lighthouseani{
-    0%{
-        left: -10vw;
-
-    }
-    
-    100%{
-        left: 100vw;
-    }
+.lighthouseani {
+  animation: lighthouseani linear 10s infinite;
 }
 
+@keyframes lighthouseani {
+  0% {
+    left: -10vw;
+  }
 
+  100% {
+    left: 100vw;
+  }
+}
 
-.lighthouseimg{
-    position: relative; 
+.lighthouseimg {
+  position: relative;
 }
 
 .card {
-    position: relative;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-  
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+
   margin-top: -100vh;
+}
+.box-back {
+  position: relative;
+  bottom: -65vh;
+
+  z-index: 2;
+  height: 6vh;
+  width: 4vw;
+  margin-left: 35vh;
+}
+
+.stars {
+  z-index: 2;
+
+  animation: 8s forwards starfall;
+  height: 4vh;
+  width: 2vw;
+  margin-top: 22vh;
+}
+
+@keyframes starfall {
+  0% {
+    transform: translateY(20vh);
   }
-  .box-back {
-    position:relative;
-    bottom:-65vh;
-   
-    
-    z-index:2;
-    height: 6vh;
-    width: 4vw;
-    margin-left:35vh;
+  100% {
+    transform: translateY(600vh);
   }
-  
-  
-  
-  .stars {
-    z-index: 2;
-   
-    animation: 8s forwards starfall; 
-    height: 4vh;
-    width: 2vw;
-    margin-top: 22vh;
+}
 
+.star {
+  height: 4vh;
+  width: 2vw;
+  margin-top: 15vh;
+}
 
+.darkhouseimg {
+  position: relative;
+  height: 50vh;
+  width: 30vw;
+  margin-top: -160vh;
+  opacity: 0;
+}
+.box2 {
+  margin-left: 90vh;
+}
+
+.score {
+  position: relative;
+  color: aliceblue;
+  margin-left: 1vw;
+  margin-top: 2vh;
+}
+
+.gameover {
+  color: aliceblue;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  font-size: 4vw;
+}
+.darkhouseani {
+  animation: darkhouseani 10s linear 3s infinite;
+}
+
+@keyframes darkhouseani {
+  0% {
+    left: -10vw;
+    opacity: 1;
   }
-  
-  @keyframes starfall {
-    0% {
-      transform: translateY(20vh);
-    }
-    100% {
-      transform: translateY(600vh);
-    }
-  
+  100% {
+    left: 100vw;
+    opacity: 1;
   }
-
-  .star{
-    height: 4vh;
-    width: 2vw;
-    margin-top: 15vh;
-  }
-
-
-.darkhouseimg{
-    position: relative;
-    height: 50vh;
-    width: 30vw;
-    margin-top:-160vh;
-    opacity: 0;
-    
-    
-    
-}
-.box2{
-
-    margin-left: 90vh;
 }
 
-.score{
-    position:relative;
-    color:aliceblue;
-    margin-left: 1vw;
-    margin-top: 2vh;
-    
+.Lives {
+  position: relative;
+  color: aliceblue;
+  margin-left: 1vw;
+  margin-top: 2vh;
 }
-
-
-
-.gameover{
-    color:aliceblue;
-    justify-content: center;
-    position: relative;
-    display: flex;
-    font-size: 4vw;
-}
-.darkhouseani{
-    animation: darkhouseani 10s linear 3s  infinite;
-    
-    
-
-}
-
-
-@keyframes darkhouseani{
-    0%{
-        left: -10vw;
-  opacity: 1;
-    }
-    100%{
-        left: 100vw;
-        opacity: 1;
-    }
-}
-
-
