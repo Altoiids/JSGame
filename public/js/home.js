@@ -6,5 +6,5 @@
     };
 
 document.getElementById("startbtn").onclick = function () {
-        location.href = "home.html";
+        location.href = "../../home.html";
     };
