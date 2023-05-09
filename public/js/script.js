@@ -13,6 +13,8 @@ box2 = document.querySelector(".darkhouseimg");
 score = document.querySelector(".score");
 santa = document.querySelector(".santaimg");
 divabove = document.querySelector(".divabove");
+anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
+anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
 var rect = gift.getBoundingClientRect();
 var rect1 = box1.getBoundingClientRect();
 var rect2 = box2.getBoundingClientRect();
@@ -25,11 +27,9 @@ setTimeout(() => {
 
 document.addEventListener("keydown", (event) => {
   if (event.code == "Space") {
-    gift = document.querySelector(".star");
-    divabove = document.querySelector(".divabove");
-
     gift.classList.add("stars");
     audiodrop.play();
+
     setTimeout(() => {
       audiodrop.pause();
     }, 1000);
@@ -40,59 +40,29 @@ document.addEventListener("keydown", (event) => {
     }, 400);
   }
 
-  console.log(event.code);
-  console.log(rect.left);
-  console.log(rect2.left);
-  console.log(rect1.left);
-  console.log(rect2.top);
-  console.log(rect1.top);
-  console.log(rect.top);
-  console.log(rect2.top);
-  console.log(rect2.width);
-  console.log(rect2.height);
-  console.log(box1.clientWidth);
-  console.log(box1.clientHeight);
-  console.log(
-    gift.offsetLeft <= rect2.left,
-    gift.offsetLeft <= rect2.left + rect2.width,
-    rect.top <= rect2.top,
-    rect.top <= rect2.top + rect2.height,
-    gift.offsetLeft >= rect1.left,
-    gift.offsetLeft <= rect1.left + box1.clientWidth / 2,
-    rect.top <= rect1.top,
-    rect.top <= rect1.top + box1.clientHeight
-  );
+  
 
   if (event.code == "Space" &&
-    gift.offsetLeft <= box2.offsetLeft &&
-    gift.offsetLeft <= box2.offsetLeft + rect2.width &&
-    rect.top <= rect2.top &&
-    rect.top <= rect2.top + rect2.height &&
-    gift.offsetLeft >= rect1.left &&
-    gift.offsetLeft <= rect1.left + box1.clientWidth / 2 &&
-    rect.top <= rect1.top &&
-    rect.top <= rect1.top + box1.clientHeight
+  gift.offsetLeft <= box2.offsetLeft &&
+  gift.offsetLeft <= box2.offsetLeft + rect2.width &&
+  rect.top <= rect2.top &&
+  rect.top <= rect2.top + rect2.height &&
+  gift.offsetLeft >= rect1.left &&
+  gift.offsetLeft <= rect1.left + box1.clientWidth / 2 &&
+  rect.top <= rect1.top &&
+  rect.top <= rect1.top + box1.clientHeight
   ) {
     Life -= 1;
-    console.log(Life);
-    console.log("hello lets see");
+    
     Lives.innerHTML = "Lives : " + Life;
     if (Life == 0) {
-      gameover.innerHTML =
-        "Game Over - You Will be Shortly Redirected to Home Page";
-      box1.classList.remove("lighthouseani");
-      box2.classList.remove("darkhouseani");
-      divabove.classList.remove("santaani");
-      santa.classList.remove("santaani");
-      santa.style.display = "none";
-      box1.style.display = "none";
-      box2.style.display = "none";
+     gameOver(); 
     }
   }
 });
 
 document.addEventListener("keydown", (event) => {
-  console.log(event.code);
+  
   if (event.code == "KeyM") {
     audio.pause();
   }
@@ -106,6 +76,8 @@ setInterval(() => {
   score = document.querySelector(".score");
   santa = document.querySelector(".santaimg");
   divabove = document.querySelector(".divabove");
+  anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
+anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
 
   var rect = gift.getBoundingClientRect();
   var rect1 = box1.getBoundingClientRect();
@@ -117,25 +89,9 @@ setInterval(() => {
     rect.top >= rect1.top &&
     rect.top <= rect1.top + box1.clientHeight
   ) {
-    gameover.innerHTML =
-      "Game Over - You Will be Shortly Redirected to Home Page";
-    box1.classList.remove("lighthouseani");
-    box2.classList.remove("darkhouseani");
-    divabove.classList.remove("santaani");
-    santa.classList.remove("santaani");
-    santa.style.display = "none";
-    box1.style.display = "none";
-    box2.style.display = "none";
+    gameOver();
 
-    audioend.play();
-    setTimeout(() => {
-      audioend.pause();
-      audio.pause();
-    }, 1000);
-
-    setTimeout(() => {
-      location.href = "index.html";
-    }, 4000);
+    
   }
 
   if (
@@ -158,74 +114,59 @@ setInterval(() => {
   if (scoreval >= 1 && scoreval < 5 && santa.style.animationDuration < "4s" ) {
 
     setTimeout(() => {
-      console.log("function called");
-      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
-      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+      
+      
       newanisanta = anisanta - 0.0000001;
       newanigift = anigift - 0.0000001;
       santa.style.animationDuration = newanisanta + 's';
       divabove.style.animationDuration = newanigift + 's';
-      console.log('New animation duration: ', newanisanta);
-      console.log('New animation duration: ', newanigift);
+     
   }, 5);
   } 
   
   else if (scoreval >= 5 && scoreval < 10 &&  santa.style.animationDuration < "3.5s") {
  
     setTimeout(() => {
-      console.log("function called");
-      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
-      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
       newanisanta = anisanta - 0.0000001;
       newanigift = anigift - 0.0000001;
       santa.style.animationDuration = newanisanta + 's';
       divabove.style.animationDuration = newanigift + 's';
-      console.log('New animation duration: ', newanisanta);
-      console.log('New animation duration: ', newanigift);
+      
   }, 5);
 
     
   } else if (scoreval >= 10 && scoreval < 15 && santa.style.animationDuration < "3s" ) {
    
     setTimeout(() => {
-      console.log("function called");
-      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
-      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+      
       newanisanta = anisanta - 0.0000001;
       newanigift = anigift - 0.0000001;
       santa.style.animationDuration = newanisanta + 's';
       divabove.style.animationDuration = newanigift + 's';
-      console.log('New animation duration: ', newanisanta);
-      console.log('New animation duration: ', newanigift);
+     
   }, 5);
 
 
   } else if (scoreval >= 15 && scoreval < 20 && santa.style.animationDuration < "2.5s" ) {
     
     setTimeout(() => {
-      console.log("function called");
-      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
-      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+      
       newanisanta = anisanta - 0.0000001;
       newanigift = anigift - 0.0000001;
       santa.style.animationDuration = newanisanta + 's';
       divabove.style.animationDuration = newanigift + 's';
-      console.log('New animation duration: ', newanisanta);
-      console.log('New animation duration: ', newanigift);
+      
   }, 5);
 
   } else if (scoreval >= 20 && scoreval < 25 && santa.style.animationDuration < "2s" ) {
 
     setTimeout(() => {
-      console.log("function called");
-      anisanta = parseFloat(window.getComputedStyle(santa, null).getPropertyValue('animation-duration'));
-      anigift = parseFloat(window.getComputedStyle(divabove, null).getPropertyValue('animation-duration'));
+    
       newanisanta = anisanta - 0.0000001;
       newanigift = anigift - 0.0000001;
       santa.style.animationDuration = newanisanta + 's';
       divabove.style.animationDuration = newanigift + 's';
-      console.log('New animation duration: ', newanisanta);
-      console.log('New animation duration: ', newanigift);
+      
   }, 5);
 
 
@@ -251,4 +192,25 @@ function checkHighScore() {
     localStorage.setItem("highScore", highScore);
   }
   document.getElementById("highScore").innerHTML = "Highscore: " + highScore;
+}
+ 
+function gameOver(){
+  gameover.innerHTML =
+        "Game Over - You Will be Shortly Redirected to Home Page";
+      box1.classList.remove("lighthouseani");
+      box2.classList.remove("darkhouseani");
+      divabove.classList.remove("santaani");
+      santa.classList.remove("santaani");
+      santa.style.display = "none";
+      box1.style.display = "none";
+      box2.style.display = "none";
+    audioend.play();
+    setTimeout(() => {
+      audioend.pause();
+      audio.pause();
+    }, 1000);
+
+    setTimeout(() => {
+      location.href = "index.html";
+    }, 4000);
 }
